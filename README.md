@@ -1,3 +1,70 @@
+# 🔐 Secure Password Generator (Java Client/Server)
+
+> PAC Project – DAM  
+> IDE: **Eclipse**  
+> Language: **Java**
+
+---
+
+## 📌 Author
+
+- **Name:** Carlos J. Venegas Berrones 
+- **Project:** Password Generator with Sockets (Client/Server)
+
+---
+
+## 📘 Project Description
+
+This project implements a **Client/Server application in Java** using **Sockets**.  
+The goal is to generate **secure passwords** based on requirements defined by the user from the client side.
+
+### 🖥️ Server
+
+The server is responsible for:
+
+- Requesting password requirements:
+  - Number of **uppercase letters**
+  - Number of **lowercase letters**
+  - Number of **digits**
+  - Number of **special characters**
+- Calculating the **total password length**.
+- Asking whether the user wants to **generate the password**.
+- Generating the password according to the provided specifications.
+- Applying **validations** and **error handling**.
+- Responding to the client following the PAC guidelines.
+- Closing the connection properly.
+
+### 💻 Client
+
+The client:
+
+- Connects to the server using sockets.
+- Reads and displays the server messages to the user.
+- Sends the user's responses back to the server.
+- Receives the generated password or the final message.
+- Closes the connection when instructed by the server.
+
+---
+
+## 📂 Project Structure
+
+```bash
+src/
+│
+├── servidor/
+│   ├── MainServidor.java      # Server entry point
+│   ├── Servidor.java          # Main server logic (sockets)
+│   ├── ServicioPass.java      # Password generation logic
+│   └── RequisitosPass.java    # POJO containing password requirements
+│
+└── cliente/
+    ├── MainCliente.java       # Client entry point
+    └── Cliente.java           # Client-server communication logic
+
+
+
+
+-------------------------------------------------------------------
 # README – Secure Password Generator (Client/Server in Java)
 
 # 🔐 Generador de Contraseñas Seguras (Cliente/Servidor en Java)
