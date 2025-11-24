@@ -1,139 +1,64 @@
 # README – Secure Password Generator (Client/Server in Java)
 
-📌 Author
-Your Carlos J. Venegas Berrones
-Project: PAC – DAM Development – Password Generator with Sockets
-IDE: Eclipse
-Language: Java
+# 🔐 Generador de Contraseñas Seguras (Cliente/Servidor en Java)
 
-Project Description
+> Proyecto PAC – DAM  
+> IDE: **Eclipse**  
+> Lenguaje: **Java**
 
-This project implements a Client/Server application in Java using Sockets.
-The objective is to generate secure passwords based on requirements defined by the user from the client.
+---
 
-The server:
+## 📌 Autor
 
-Requests the password requirements (uppercase, lowercase, digits, and special characters).
+- **Nombre:** Carlos J. Venegas Berrones
+- **Proyecto:** Generador de Contraseñas con Sockets (Cliente/Servidor)  
 
-Calculates the total length.
+---
 
-Optionally generates the password according to those requirements.
+## 📘 Descripción del Proyecto
 
-Applies validations and error handling.
+Este proyecto implementa una aplicación **Cliente/Servidor en Java** utilizando **Sockets**.  
+El objetivo es generar **contraseñas seguras** siguiendo unos requisitos que el usuario define desde el cliente.
 
-Responds to the client following the flow established by the PAC.
+### 🖥️ Servidor
 
-The client:
+El servidor se encarga de:
 
-Connects to the server.
+- Solicitar los requisitos de la contraseña:
+  - Número de **mayúsculas**
+  - Número de **minúsculas**
+  - Número de **dígitos**
+  - Número de **caracteres especiales**
+- Calcular la **longitud total** de la contraseña.
+- Preguntar si el usuario desea **generar la contraseña**.
+- Generar la contraseña cumpliendo los requisitos (si el usuario acepta).
+- Aplicar **validaciones** y **manejo de errores**.
+- Responder al cliente manteniendo el flujo establecido por la PAC.
+- Realizar una **desconexión ordenada**.
 
-Reads the server messages and displays the questions.
+### 💻 Cliente
 
-Sends the user’s answers when required.
+El cliente:
 
-Receives the generated password or the final message.
+- Se conecta al servidor mediante sockets.
+- Lee los mensajes enviados por el servidor y muestra las preguntas al usuario.
+- Envía las respuestas del usuario al servidor.
+- Recibe la contraseña generada o el mensaje final.
+- Cierra la conexión cuando el servidor lo indica.
 
-📂 Project Structure
+---
+
+## 📂 Estructura del Proyecto
+
+```bash
 src/
 │
 ├── servidor/
-│   ├── MainServidor.java
-│   ├── Servidor.java
-│   ├── ServicioPass.java
-│   └── RequisitosPass.java
+│   ├── MainServidor.java      # Punto de entrada del servidor
+│   ├── Servidor.java          # Lógica principal del servidor (sockets)
+│   ├── ServicioPass.java      # Lógica de generación de contraseñas
+│   └── RequisitosPass.java    # POJO con los requisitos de la contraseña
 │
 └── cliente/
-    ├── MainCliente.java
-    └── Cliente.java
-
-🖥️ Execution
-1️⃣ Run the Server
-
-In Eclipse:
-Right-click on MainServidor.java
-→ Run As
-→ Java Application
-
-The server will wait for connections on port 4321.
-
-2️⃣ Run the Client
-
-In a separate execution:
-Right-click on MainCliente.java
-→ Run As
-→ Java Application
-
-The client will automatically connect to the server at localhost:4321.
-
-🔧 General Operation
-Server flow:
-
-Asks for the user’s name.
-
-Requests:
-
-Number of uppercase letters
-
-Number of lowercase letters
-
-Number of digits
-
-Number of special characters
-
-Displays the total password length.
-
-Asks whether the user wants to generate it.
-
-Generates and sends the password (if confirmed).
-
-Closes the connection.
-
-Includes:
-
-Error handling
-
-Validations
-
-Clear messages
-
-Ordered disconnection
-
-🔐 Password Generation
-
-The ServicioPass class:
-
-Uses SecureRandom for better security.
-
-Selects characters from allowed groups.
-
-Shuffles the final result to avoid patterns (extra point).
-
-Returns a strong and random password.
-
-⚠️ Implemented Validations
-
-Negative numbers → error.
-
-Non-numeric values → error.
-
-“Yes/No” answers interpreted flexibly.
-
-Client disconnection handled correctly.
-
-If the user sends invalid data, the server:
-
-Sends an error message.
-
-Closes the connection (as required by the PAC).
-
-📝 Technical Requirements Met
-
-✔ Client/Server communication using Sockets
-✔ Full validations
-✔ Separated classes in packages
-✔ Clear structure and comments
-✔ Use of SecureRandom
-✔ Encapsulated logic in ServicioPass
-✔ RequisitosPass as a simple POJO
-✔ Proper connection closing
-✔ Conversational flow according to the assignment
+    ├── MainCliente.java       # Punto de entrada del cliente
+    └── Cliente.java           # Lógica de comunicación con el servidor
