@@ -1,3 +1,4 @@
+//Recuerda iniciar el servidor primero
 package cliente;
 
 /*
